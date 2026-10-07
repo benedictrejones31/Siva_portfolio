@@ -23,3 +23,4 @@ export const SectionWrapper: React.FC<SectionWrapperProps> = ({ id, className = 
     </motion.section>
   );
 };
+

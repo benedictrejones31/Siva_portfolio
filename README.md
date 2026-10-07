@@ -158,3 +158,4 @@ For production deployment on **Vercel**:
 8. Click **Deploy**.
 
 The Vercel Serverless Function `/api/send` will automatically route form submissions to Resend.
+

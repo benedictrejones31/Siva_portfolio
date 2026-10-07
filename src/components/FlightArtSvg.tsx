@@ -122,3 +122,4 @@ export const FlightArtSvg: React.FC<{ className?: string }> = ({ className = '' 
     </div>
   );
 };
+

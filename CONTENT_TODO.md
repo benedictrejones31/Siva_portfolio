@@ -27,3 +27,4 @@ This document tracks placeholders and specific metrics/details that need confirm
 
 ### How to Update
 All content strings are organized in [`src/data/content.ts`](./src/data/content.ts). Update the corresponding strings in that file, and the layout will automatically reflect your changes.
+

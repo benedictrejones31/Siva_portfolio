@@ -86,3 +86,4 @@ export const About: React.FC = () => {
     </SectionWrapper>
   );
 };
+

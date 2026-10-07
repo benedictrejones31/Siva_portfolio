@@ -180,3 +180,4 @@ export const Capabilities: React.FC = () => {
     </SectionWrapper>
   );
 };
+

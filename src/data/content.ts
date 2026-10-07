@@ -21,6 +21,8 @@ export interface HighlightItem {
   title: string;
   context: string;
   outcome: string;
+  imageUrl: string;
+  imageAlt: string;
 }
 
 export interface CredentialItem {
@@ -41,8 +43,7 @@ export const PORTFOLIO_CONTENT = {
     photoUrl: "/siva-manikandan.jpg",
     email: "sivamanikandan1000@gmail.com",
     linkedinUrl: "https://linkedin.com/in/sivamanikandan-s-9410a8252",
-    linkedinHandle: "linkedin.com/in/sivamanikandan-s-9410a8252",
-    phone: "+91 91503 43677",
+    linkedinLabel: "LinkedIn",
   },
 
   metrics: [
@@ -151,24 +152,32 @@ export const PORTFOLIO_CONTENT = {
       title: "Endurance Optimisation",
       context: "sub-6 kg multirotor platform aerodynamic & propulsion efficiency",
       outcome: "120+ min continuous flight time achieved",
+      imageUrl: "/projects/endurance-optimization.jpg",
+      imageAlt: "Sub-6 kg multirotor UAV long endurance flight test airfield",
     },
     {
       id: "dgca",
       title: "DGCA Type Certification Support",
       context: "Designated test pilot executing regulatory test card points",
       outcome: "Full compliance verification against formal safety frameworks",
+      imageUrl: "/projects/type-certification.jpg",
+      imageAlt: "UAV flight test and DGCA type certification readiness trial",
     },
     {
       id: "high-altitude",
       title: "High-Altitude & Defence Demonstrations",
       context: "Demanding mission profiles flown in challenging operational environments",
       outcome: "Live telemetry and post-flight validation data presented to defence stakeholders",
+      imageUrl: "/projects/high-altitude-defense.jpg",
+      imageAlt: "High-altitude fixed-wing UAV defence demonstration above mountain range",
     },
     {
       id: "vibration",
       title: "Vibration-to-Stability Workflow",
       context: "FFT frequency-domain log analysis (.BIN) to isolate airframe resonance",
       outcome: "Notch-filter configuration and PID refinement for smoother inner-loop control",
+      imageUrl: "/projects/vibration-fft-analysis.jpg",
+      imageAlt: "Avionics vibration log analysis and notch filter tuning bench",
     },
   ] as HighlightItem[],
 

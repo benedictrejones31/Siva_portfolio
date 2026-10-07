@@ -115,17 +115,17 @@ export const Hero: React.FC = () => {
               {/* Card Container with 1px border and 12px radius */}
               <div className="relative rounded-card overflow-hidden border border-border bg-surface shadow-xs transition-colors duration-200 group-hover:border-accent">
                 {/* Image */}
-                <div className="aspect-3/4 relative overflow-hidden bg-bg">
+                <div className="aspect-[4/5] relative overflow-hidden bg-bg">
                   <img
                     src={personal.photoUrl}
                     alt="Siva Manikandan S - Prototype Flight Test Pilot"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                     loading="eager"
-                    width={360}
-                    height={480}
+                    width={616}
+                    height={839}
                   />
                   {/* Subtle gradient vignette at bottom */}
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface via-surface/40 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface via-surface/30 to-transparent" />
                 </div>
 
                 {/* Sub-label under portrait */}
@@ -149,3 +149,4 @@ export const Hero: React.FC = () => {
     </section>
   );
 };
+

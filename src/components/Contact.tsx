@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { SectionWrapper } from './SectionWrapper';
 import { PORTFOLIO_CONTENT } from '../data/content';
-import { Mail, Linkedin, MapPin, Phone, Copy, Check, Send, Loader2, Eye, ExternalLink } from 'lucide-react';
+import { Mail, Linkedin, MapPin, Copy, Check, Send, Loader2, ExternalLink } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const { personal, contact } = PORTFOLIO_CONTENT;
 
   // Copy email state
   const [copiedEmail, setCopiedEmail] = useState(false);
-  // Phone reveal state
-  const [phoneRevealed, setPhoneRevealed] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
 
   // Form states
   const [formState, setFormState] = useState({
@@ -28,16 +25,6 @@ export const Contact: React.FC = () => {
       await navigator.clipboard.writeText(personal.email);
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2400);
-    } catch {
-      // Fallback
-    }
-  };
-
-  const handleCopyPhone = async () => {
-    try {
-      await navigator.clipboard.writeText(personal.phone);
-      setCopiedPhone(true);
-      setTimeout(() => setCopiedPhone(false), 2400);
     } catch {
       // Fallback
     }
@@ -141,77 +128,32 @@ export const Contact: React.FC = () => {
               </a>
             </div>
 
-            {/* LinkedIn Card */}
-            <div className="p-5 rounded-card border border-border bg-surface hover-subtle space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-muted flex items-center gap-1.5">
-                  <Linkedin className="w-3.5 h-3.5 text-accent" />
-                  Professional Network
-                </span>
-                <ExternalLink className="w-3.5 h-3.5 text-muted" />
+            {/* LinkedIn Card - Hides URL, Shows Logo & Name, Navigates on Click */}
+            <a
+              href={personal.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-5 rounded-card border border-border bg-surface hover-subtle flex items-center justify-between group transition-colors block"
+              aria-label="Open Siva Manikandan's LinkedIn profile in a new tab"
+            >
+              <div className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-lg bg-accent-soft text-accent flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-surface transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-muted block">
+                    Professional Network
+                  </span>
+                  <span className="text-base font-bold text-text group-hover:text-accent transition-colors">
+                    LinkedIn
+                  </span>
+                </div>
               </div>
-
-              <a
-                href={personal.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm sm:text-base font-semibold text-text hover:text-accent transition-colors break-all block"
-              >
-                {personal.linkedinHandle}
-              </a>
-            </div>
-
-            {/* Phone Card (Behind anti-scraping toggle) */}
-            <div className="p-5 rounded-card border border-border bg-surface hover-subtle space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono uppercase tracking-wider text-muted flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-accent" />
-                  Phone (Direct)
-                </span>
-                
-                {phoneRevealed && (
-                  <button
-                    type="button"
-                    onClick={handleCopyPhone}
-                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono rounded-md border border-border bg-bg text-muted hover:text-text hover:border-accent transition-colors"
-                    aria-label="Copy phone number"
-                  >
-                    {copiedPhone ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-accent" />
-                        <span className="text-accent font-medium">Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5" />
-                        <span>Copy</span>
-                      </>
-                    )}
-                  </button>
-                )}
+              
+              <div className="p-2 rounded-md bg-bg text-muted group-hover:text-accent group-hover:bg-accent-soft transition-colors">
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
-
-              <div>
-                {!phoneRevealed ? (
-                  <button
-                    type="button"
-                    onClick={() => setPhoneRevealed(true)}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border bg-bg text-xs font-mono text-text hover:border-accent hover:text-accent transition-colors"
-                    aria-label="Show phone number"
-                  >
-                    <Eye className="w-3.5 h-3.5 text-accent" />
-                    <span>Show number</span>
-                  </button>
-                ) : (
-                  <a
-                    href={`tel:${personal.phone.replace(/\s+/g, '')}`}
-                    className="text-sm sm:text-base font-semibold text-text hover:text-accent font-mono transition-colors"
-                  >
-                    {personal.phone}
-                  </a>
-                )}
-              </div>
-            </div>
+            </a>
 
             {/* Location & Operating Base Card */}
             <div className="p-5 rounded-card border border-border bg-surface hover-subtle space-y-2">
@@ -222,7 +164,7 @@ export const Contact: React.FC = () => {
               <p className="text-sm font-semibold text-text">
                 {personal.location}
               </p>
-              <p className="text-xs text-muted">
+              <p className="text-xs text-muted leading-relaxed">
                 Available for on-site flight trials and prototype deployment across India and international test ranges.
               </p>
             </div>
