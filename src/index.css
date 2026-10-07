@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F7F6F2;
+  --surface: #FFFFFF;
+  --text: #1F2A33;
+  --muted: #5F6B76;
+  --border: #E4E2DB;
+  --accent: #5B7C8D;
+  --accent-soft: #E6EEF1;
+}
+
+.dark {
+  --bg: #12171B;
+  --surface: #1A2127;
+  --text: #E8ECEF;
+  --muted: #9AA6B0;
+  --border: #28313A;
+  --accent: #8FB0C0;
+  --accent-soft: #1F2C33;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus states */
+  *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle elevation and border shift */
+.hover-subtle {
+  transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.hover-subtle:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
