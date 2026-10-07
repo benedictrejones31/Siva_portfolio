@@ -42,7 +42,7 @@ export const PORTFOLIO_CONTENT = {
     location: "Bengaluru, India",
     photoUrl: "/siva-manikandan.jpg",
     email: "sivamanikandan1000@gmail.com",
-    linkedinUrl: "https://linkedin.com/in/sivamanikandan-s-9410a8252",
+    linkedinUrl: "https://www.linkedin.com/in/siva-manikandan-s-9410a8252",
     linkedinLabel: "LinkedIn",
   },
 
